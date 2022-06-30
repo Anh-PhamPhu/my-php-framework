@@ -1,0 +1,9 @@
+{
+    "name": "anhphamphu/my-php-framework",
+    "autoload": {
+        "psr-4":{
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
