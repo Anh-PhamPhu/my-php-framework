@@ -32,8 +32,13 @@ class Router {
         if($callback === false){
             Application::$app->response->setStatusCode(404);
             return $this->renderContent("_404");
-        }else if(is_string($callback)){
+        }
+        if(is_string($callback)){
             return $this->renderView($callback);
+        }
+        if(\is_array($callback)){
+            Application::$app->controller = new $callback[0]();
+            $callback[0] = Application::$app->controller;
         }
         // echo '<pre>';
         // var_dump($callback);
@@ -55,8 +60,9 @@ class Router {
     }
 
     protected function layoutContent(){
+        $layout = Application::$app->controller->layout;
         ob_start();
-        include_once Application::$ROOT_DIR.'/views/layouts/mainLayouts.php';
+        include_once Application::$ROOT_DIR.'/views/layouts/'.$layout.'.php';
         return ob_get_clean();
     }
     protected function renderOnlyView($view, $params){

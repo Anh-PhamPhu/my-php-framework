@@ -8,10 +8,12 @@
     $app = new Application(dirname(__DIR__));
 
     $app->router->get('/', 'index');
-    $app->router->get('/users', [new SiteController, 'showUsers']);
-    $app->router->post('/users', [new SiteController, 'handleUsers']);
-    $app->router->get('/register', [new AuthController, 'register']);
-    $app->router->get('/login', [new AuthController, 'login']);
+    $app->router->get('/users', [SiteController::class, 'showUsers']);
+    $app->router->post('/users', [SiteController::class, 'handleUsers']);
+    $app->router->get('/register', [AuthController::class, 'register']);
+    $app->router->post('/register', [AuthController::class, 'register']);
+    $app->router->get('/login', [AuthController::class, 'login']);
+    $app->router->post('/login', [AuthController::class, 'login']);
 
     $app->run();
 
