@@ -7,16 +7,16 @@ class Application {
     public Request $request;
     public Response $response;
     public Controller $controller;
+    public Database $db;
 
-    public function __construct($rootPath){
+    public function __construct($rootPath, array $config){
         self::$ROOT_DIR = $rootPath;
         self::$app = $this;
         $this->request = new Request();
         $this->response = new Response();
         $this->controller = new Controller();
         $this->router = new Router($this->request, $this->response, $this->controller);
-        // $this->router = new Router($this->response);
-        
+        $this->db = new Database($config['db']);        
     }
 
     public function getController(): \app\core\Controller {

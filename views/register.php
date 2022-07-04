@@ -1,7 +1,7 @@
 <div class="container mt-4">
     <h1>Register</h1>
     <?php
-        $form = \app\core\form\Form::begin('', "post")
+        $form = \app\core\form\Form::begin('/register', "post")
     ?>
         <?php
             echo $form->field($model, 'firstname')
