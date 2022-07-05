@@ -11,7 +11,7 @@
     
     <header>
         <nav class="container-fluid navbar navbar-dark navbar-expand-lg bg-dark">
-            <div class="container-fluid">
+            <div class="container-fluid d-flex ">
                 <!-- <a class="navbar-brand" href="/">MyPHP-Framwork</a> -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -52,6 +52,10 @@
     </header>
     <div class="container">
         <div class="content">
+            <?php if(\app\core\Application::$app->session->getFlash('success')) ?>
+            <div class="alert alert-succes">
+                <?php echo \app\core\Application::$app->session->getFlash('success') ?>
+            </div>
             {{content}}
         </div>
     </div>
