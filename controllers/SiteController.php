@@ -7,10 +7,7 @@ use app\core\Request;
 class SiteController extends Controller{
     public function showUsers(){
         $this->setLayout('mainLayouts');
-        $params = [
-            'name' => 'Anh Pham Phu',
-        ];
-        return $this->render('users', $params);
+        return $this->render('users');
     }
     public function handleUsers(Request $request){
         $this->setLayout('mainLayouts');

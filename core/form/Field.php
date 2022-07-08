@@ -20,9 +20,9 @@ class Field {
 
     public function __toString(){
         return sprintf('
-            <div class="form-group mt-2">
+            <div class="form-group mt-4">
                 <label>%s</label>
-                <input type="%s" name="%s" value="%s" class="form-control%s"  >
+                <input type="%s" name="%s" value="%s" class="mt-4 form-control%s"  >
                 <div class="invalid-feedback">
                     %s
                 </div>
